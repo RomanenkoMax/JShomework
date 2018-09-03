@@ -1,0 +1,19 @@
+.container {
+    margin: 0 100px;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    flex-wrap: wrap;
+}
+h2 {
+    text-align: center;
+}
+button {
+    height: 50px;
+    width: 100px;
+    margin: 20px;
+}
+button:hover {
+    text-transform: uppercase;
+    border: 5px solid green;
+}
