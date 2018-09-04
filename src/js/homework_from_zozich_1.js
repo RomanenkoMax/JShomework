@@ -181,6 +181,7 @@ function four() {
     numB = +numB;
     numberFibo = +numberFibo;
 
+
     let resultArray = new Array(numberFibo + 2);
     resultArray[0] = numA;
     resultArray[1] = numB;
@@ -189,7 +190,7 @@ function four() {
         resultArray[i] = resultArray[i - 1] + resultArray[i - 2];
     }
 
-    alert(resultArray[resultArray.length - 1]);
+    alert(resultArray[resultArray.length - 3]);
 
 }
 
@@ -312,12 +313,64 @@ function eight() {
 
 function nine() {
 
-    let DateOfBorn = new Date(+prompt('Your year of born: ', '1990'), +prompt('month of born: ', '1') - 1, +prompt('day of born: ', '1'));
+    let dateOfBorn = new Date(+prompt('Your year of born: ', '1990'), +prompt('month of born: ', '1') - 1, +prompt('day of born: ', '1'));
 
     let now = new Date();
 
-    let year = now.getFullYear() - DateOfBorn.getFullYear();
+    let years = now.getFullYear() - dateOfBorn.getFullYear();
 
-    console.log(year);
+    if (now.getMonth() < dateOfBorn.getMonth() || (now.getMonth() === dateOfBorn.getMonth() && now.getDate() < dateOfBorn.getDate())) {
+        years--;
+    }
+
+    alert(`You got ${years} years.`);
+
+    function getZodiak(userDate) {
+
+        let zodiakArray = [
+            {name: "Козерог", day: 20},
+            {name: "Водолей", day: 19},
+            {name: "Рыбы", day: 21},
+            {name: "Овен", day: 20},
+            {name: "Телец", day: 21},
+            {name: "Близнецы", day: 21},
+            {name: "Рак", day: 23},
+            {name: "Лев", day: 23},
+            {name: "Дева", day: 23},
+            {name: "Весы", day: 23},
+            {name: "Скорпион", day: 22},
+            {name: "Стрелец", day: 22}
+            ];
+
+        let zodiak = '';
+        console.log(userDate.getMonth());
+        let month = userDate.getMonth();
+        console.log(month);
+        let date = userDate.getDate();
+        console.log(date);
+        console.log(zodiakArray[month].day);
+
+
+        if (zodiakArray[month].day > date) {
+
+           zodiak = zodiakArray[month].name;
+
+        } else {
+
+            if (month < 11) {
+                zodiak = zodiakArray[month + 1].name;
+                console.log(zodiak);
+            } else {
+                zodiak = zodiakArray[0].name;
+            }
+        }
+
+        return zodiak;
+    }
+
+    alert('Ваш знак зодиака : ' + getZodiak(dateOfBorn));
+
+}
+function ten() {
 
 }

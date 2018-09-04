@@ -14,6 +14,8 @@ button {
     margin: 20px;
 }
 button:hover {
+
     text-transform: uppercase;
+    border-radius: 5px;
     border: 5px solid green;
 }
