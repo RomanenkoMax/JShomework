@@ -374,3 +374,54 @@ function nine() {
 function ten() {
 
 }
+
+function eleven() {
+
+    let numOfListElem = +prompt('Enter number of list elements: ', '5');
+
+    let arr = [];
+
+    for (let i = 0; i < numOfListElem; i++){
+        arr[i] = prompt(`${i} list element text:`, `${i+1}`);
+    }
+
+    let fragment = document.createDocumentFragment();
+
+    let ul = document.createElement('ul');
+
+    arr.map(function (value) {
+
+        let li = document.createElement('li');
+        li.innerText = value;
+        ul.appendChild(li);
+
+    });
+
+    fragment.append(ul);
+
+    let list = document.getElementById('list');
+
+    list.appendChild(fragment);
+
+    function setUnvisible() {
+        list.style.display = "none";
+    }
+
+    let divTimer = document.getElementsByClassName('countdown')[0];
+    let count = 10;
+
+    let timer = setInterval(function () {
+
+        divTimer.innerHTML = `All will disappeared in : ${count} seconds`;
+
+        count--;
+
+        if (count < -1){
+            clearInterval(timer);
+            divTimer.innerHTML = '';
+            setUnvisible();
+        }
+
+    }, 1000);
+
+}
