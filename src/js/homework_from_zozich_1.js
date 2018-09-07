@@ -425,3 +425,10 @@ function eleven() {
     }, 1000);
 
 }
+function twelve() {
+    window.open("homework12.html");
+
+}
+function fifty() {
+
+}
